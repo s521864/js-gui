@@ -2,7 +2,7 @@
 <html lang="en">
 
 <head>
-  <title>Interactive App</title>
+  <title>Find the Max</title>
   <!-- Font Awesome -->
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css">
   <!-- Bootstrap core CSS -->
@@ -15,50 +15,32 @@
 <body>
   <main class="container-fluid">
 
-    <h1>JavaScript for interactive apps!</h1>
-    <h3>Right-click / Inspect, then select console</h3>
-
-    <p>Enter your name:
-      <input id="guest" type="text" value="Eden">
-    </p>
+    <h1>JavaScript for Find the Max!</h1>
 
     <p>Enter first number:
-      <input id="firstNumber" type="number" value="7">
+      <input id="first" type="number" oninput="mathMax(this.value)" onchange="mathMax(this.value)">
     </p>
 
     <p>Enter second number:
-      <input id="secondNumber" type="number" value="12">
+      <input id="second" type="number" oninput="mathMax(this.value)" onchange="mathMax(this.value)">
     </p>
 
     <button id="clicker" class="btn btn-primary">Click me!</button>
 
-    <p id="result"></p>
+    <p>Max: <span id="value"></span></p>
 
   </main>
 
   <script>
-    console.log('SCRIPT START')
+    function mathMax(first, second) {
+      first = Number(document.getElementById("first").value)
 
-    console.log('Declare testable functions.....................')
+      second = Number(document.getElementById("second").value)
 
-    function add(x, y) {
-      return x + y
+      value = Math.max(first, second);
+
+      document.getElementById("value").innerHTML = Math.max(first, second);
     }
-    console.log('Defined add=' + add)
-
-    console.log('Declare event listeners .......................')
-
-    document.getElementById('clicker').addEventListener('click', function () {
-      const s = document.getElementById('guest').value
-      const i = parseInt(document.getElementById('firstNumber').value)
-      console.log('i=' + i)
-      const j = parseInt(document.getElementById('secondNumber').value)
-      console.log('j=' + j)
-      const ans = s + ', your sum is ' + add(i, j) + '.'
-      document.getElementById('result').innerHTML = ans
-    })
-
-    console.log('SCRIPT END')
   </script>
 
   <!-- JQuery -->
